@@ -4,9 +4,9 @@ summary: A demonstration application featuring the gtk-common-themes content sna
 description: |
   This snap contains the gtk3-demo application, using theme data
   provided by one or more external snaps.
-  
+
   Refer the following forum topic for more information:
-  
+
       How to use the system GTK theme via the gtk-common-themes snap - doc - snapcraft.io
       https://forum.snapcraft.io/t/how-to-use-the-system-gtk-theme-via-the-gtk-common-themes-snap/6235
 
