@@ -33,19 +33,36 @@ slots:
     bus: session
     name: org.gtk.Demo2
 
+plugs:
+  # For file picker demo
+  avahi-observe: # Non-A/C
+  home:
+  mount-observe: # Non-A/C
+  removable-media: # Non-A/C
+
+  # Common graphical application resources
+  desktop:
+  desktop-legacy:
+  unity7:
+  wayland:
+  x11:
+
+  # On a Wayland session, GTK instead uses the GSettings API to read the users preferences directly, bypassing the display server. So plugging the gsettings interface is also necessary.
+  # Allowing GTK to detect the selected system theme - How to use the system GTK theme via the gtk-common-themes snap - doc - snapcraft.io
+  # https://forum.snapcraft.io/t/how-to-use-the-system-gtk-theme-via-the-gtk-common-themes-snap/6235
+  gsettings:
+
+  # For sound theme demo
+  pulseaudio:
+
+  # For OpenGL demo
+  opengl:
+
 apps:
   demo-gtk-common-themes:
     command: >
       bin/desktop-launch
       $SNAP/usr/bin/gtk3-demo
-    plugs:
-      - desktop
-      - desktop-legacy
-      - gsettings
-      - opengl
-      - unity7
-      - wayland
-      - x11
 
 parts:
   desktop-gtk3:
