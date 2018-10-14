@@ -1,0 +1,67 @@
+name: demo-gtk-common-themes
+version: current
+summary: A demonstration application featuring the gtk-common-themes content snap
+description: |
+  This snap contains the gtk3-demo application, using theme data
+  provided by one or more external snaps.
+  
+  Refer the following forum topic for more information:
+  
+      How to use the system GTK theme via the gtk-common-themes snap - doc - snapcraft.io
+      https://forum.snapcraft.io/t/how-to-use-the-system-gtk-theme-via-the-gtk-common-themes-snap/6235
+
+grade: stable
+confinement: strict
+
+plugs:
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/share/themes
+    default-provider: gtk-common-themes:gtk-3-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/share/icons
+    default-provider: gtk-common-themes:icon-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/share/sounds
+    default-provider: gtk-common-themes:sounds-themes
+
+slots:
+  gtk-app-dbus-svc:
+    interface: dbus
+    bus: session
+    name: org.gtk.Demo2
+
+apps:
+  demo-gtk-common-themes:
+    command: >
+      bin/desktop-launch
+      $SNAP/usr/bin/gtk3-demo
+    plugs:
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - opengl
+      - unity7
+      - wayland
+      - x11
+
+parts:
+  desktop-gtk3:
+  demo:
+    plugin: nil
+    stage-packages:
+      - gtk-3-examples
+    override-build: |
+      set -ex
+      snapcraftctl build
+      mkdir -p \
+        $SNAPCRAFT_PART_INSTALL/share/icons \
+        $SNAPCRAFT_PART_INSTALL/share/sounds \
+        $SNAPCRAFT_PART_INSTALL/share/themes
+    stage:
+      - usr
+      - share/icons
+      - share/themes
+      - share/sounds
