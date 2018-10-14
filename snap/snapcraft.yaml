@@ -65,6 +65,35 @@ apps:
       $SNAP/usr/bin/gtk3-demo
 
 parts:
+  ccache:
+    plugin: nil
+    build-packages:
+    - ccache
+
+    # Temporary workaround for Bug #1776807 “`nil` plugin shouldn't pull anything to the srctre...” : Bugs : Snapcraft
+    # https://bugs.launchpad.net/snapcraft/+bug/1776807
+    override-pull: 'true'
+
+    override-build: |
+      set -eu
+
+      install \
+        --directory \
+        --verbose \
+        "${SNAPCRAFT_PART_INSTALL}"/bin
+      ln \
+        --symbolic \
+        --verbose \
+        "$(which ccache)" \
+        "${SNAPCRAFT_PART_INSTALL}"/bin/gcc
+      ln \
+        --symbolic \
+        --verbose \
+        "$(which ccache)" \
+        "${SNAPCRAFT_PART_INSTALL}"/bin/g++
+    prime:
+    - -*
+
   desktop-gtk3:
   demo:
     plugin: nil
