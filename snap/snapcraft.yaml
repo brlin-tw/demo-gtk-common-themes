@@ -70,6 +70,11 @@ parts:
     plugin: nil
     stage-packages:
     - gtk-3-examples
+
+    # Temporary workaround for Bug #1776807 “`nil` plugin shouldn't pull anything to the srctre...” : Bugs : Snapcraft
+    # https://bugs.launchpad.net/snapcraft/+bug/1776807
+    override-pull: 'true'
+
     override-build: |
       set -ex
       snapcraftctl build
