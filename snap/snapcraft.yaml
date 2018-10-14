@@ -69,7 +69,7 @@ parts:
   demo:
     plugin: nil
     stage-packages:
-      - gtk-3-examples
+    - gtk-3-examples
     override-build: |
       set -ex
       snapcraftctl build
@@ -78,7 +78,7 @@ parts:
         $SNAPCRAFT_PART_INSTALL/share/sounds \
         $SNAPCRAFT_PART_INSTALL/share/themes
     stage:
-      - usr
-      - share/icons
-      - share/themes
-      - share/sounds
+    - usr
+    - share/icons
+    - share/themes
+    - share/sounds
