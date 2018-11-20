@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set \
+    -o errexit \
+    -o nounset
+
+if ! test -v SNAP_ARCH_TRIPLET; then
+    printf -- \
+        '%s: Error: This launcher requires SNAP_ARCH_TRIPLET environmental variable to be set an exported.\n' \
+        "$(basename "${BASH_SOURCE[0]}")" \
+        1>&2
+    exit 1
+fi
+
+export \
+    GIO_EXTRA_MODULES="${SNAP}"/usr/lib/"${SNAP_ARCH_TRIPLET}"/gio/modules
+
+exec "${@}"
+

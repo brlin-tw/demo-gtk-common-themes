@@ -62,10 +62,14 @@ apps:
   demo-gtk-common-themes:
     command: >
       bin/desktop-launch
+      $SNAP/bin/workaround-snap-arch-triplet-launch
+      $SNAP/bin/gio-launch
       $SNAP/usr/bin/gtk3-demo
 
 parts:
   ccache:
+
+  workaround-snap-arch-triplet:
 
   desktop-gtk3:
     after:
