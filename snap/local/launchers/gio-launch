@@ -12,7 +12,6 @@ if ! test -v SNAP_ARCH_TRIPLET; then
 fi
 
 export \
-    GIO_EXTRA_MODULES="${SNAP}"/usr/lib/"${SNAP_ARCH_TRIPLET}"/gio/modules
+    LD_LIBRARY_PATH="${SNAP}"/usr/lib/"${SNAP_ARCH_TRIPLET}"/gvfs:"${LD_LIBRARY_PATH}"
 
 exec "${@}"
-
