@@ -14,26 +14,6 @@ grade: stable
 confinement: strict
 
 plugs:
-  gtk-3-themes:
-    interface: content
-    target: $SNAP/share/themes
-    default-provider: gtk-common-themes:gtk-3-themes
-  icon-themes:
-    interface: content
-    target: $SNAP/share/icons
-    default-provider: gtk-common-themes:icon-themes
-  sound-themes:
-    interface: content
-    target: $SNAP/share/sounds
-    default-provider: gtk-common-themes:sounds-themes
-
-slots:
-  gtk-app-dbus-svc:
-    interface: dbus
-    bus: session
-    name: org.gtk.Demo2
-
-plugs:
   # For file picker demo
   avahi-observe: # Non-A/C
   home:
@@ -57,6 +37,25 @@ plugs:
 
   # For OpenGL demo
   opengl:
+
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/share/themes
+    default-provider: gtk-common-themes:gtk-3-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/share/icons
+    default-provider: gtk-common-themes:icon-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/share/sounds
+    default-provider: gtk-common-themes:sounds-themes
+
+slots:
+  gtk-app-dbus-svc:
+    interface: dbus
+    bus: session
+    name: org.gtk.Demo2
 
 apps:
   demo-gtk-common-themes:

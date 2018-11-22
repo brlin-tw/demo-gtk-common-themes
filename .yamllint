@@ -1,0 +1,75 @@
+%YAML 1.2
+---
+# Configuration File of yamllint
+# https://yamllint.readthedocs.io
+#
+# This file is in YAML Ain’t Markup Language (YAML™)
+# http://yaml.org/
+#
+# This file is based on the `relaxed` pre-defined configuration from yamllint with documentation copied from its documentation
+# https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
+#
+# This file is based on The Unofficial yamllint Configuration Templates
+# https://github.com/Lin-Buo-Ren/yamllint-configuration-templates
+
+extends: default
+
+rules:
+  # Use this rule to control the number of spaces inside braces (`{` and `}`).
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.braces
+  braces:
+    level: warning
+    max-spaces-inside: 1
+
+  # Use this rule to control the number of spaces inside brackets (`[` and `]`).
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.brackets
+  brackets:
+    level: warning
+    max-spaces-inside: 1
+
+  # Use this rule to control the number of spaces before and after colons (`:`).
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.colons
+  colons:
+    level: warning
+
+  # Use this rule to control the number of spaces before and after commas (`,`).
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.commas
+  commas:
+    level: warning
+
+  # Use this rule to control the position and formatting of comments.
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.comments
+  comments: disable
+
+  # Use this rule to force comments to be indented like content.
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.comments_indentation
+  comments-indentation: disable
+
+  # Use this rule to require or forbid the use of document start marker (`---`).
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.document_start
+  document-start: disable
+
+  # Use this rule to set a maximal number of allowed consecutive blank lines.
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.empty_lines
+  empty-lines:
+    level: warning
+
+  # Use this rule to control the number of spaces after hyphens (`-`).
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.hyphens
+  hyphens:
+    level: warning
+
+  # Use this rule to control the indentation.
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.indentation
+  indentation:
+    level: warning
+    indent-sequences: consistent
+
+  # Use this rule to set a limit to lines length.
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.line_length
+  line-length: disable
+
+  # Use this rule to forbid non-explictly typed truthy values other than `true` and `false`, for example `YES`, `False` and `off`.
+  # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.truthy
+  truthy: disable
+...
