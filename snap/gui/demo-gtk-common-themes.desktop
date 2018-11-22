@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=Gtk Common Themes Demo
 Comment=The demonstration application of gtk-common-themes content snap
-Exec=my-awesome-app.my-app-name
+Exec=demo-gtk-common-themes
 Icon=${SNAP}/meta/gui/demo-gtk-common-themes.png
 Categories=Development
 
