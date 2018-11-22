@@ -67,6 +67,13 @@ apps:
       $SNAP/usr/bin/gtk3-demo
 
 parts:
+  launchers:
+    source: snap/local/launchers
+    plugin: dump
+
+    organize:
+      '*': bin/
+
   ccache:
 
   workaround-snap-arch-triplet:
